@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<div id = "root"></div>
+<div id = "clock">00:00:00</div>
+</body>
+<script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="clock.js"></script>
+<script type="text/babel">
+
+
+const root = document.getElementById("root");
+
+
+function OWtoApex() {
+    const [amount, setAmount] = React.useState(0);
+    const [flipped, setFlipped] = React.useState(false);
+    const onChange = (event) => {
+    setAmount(event.target.value);
+    };
+    const reset = () => setAmount(0);
+    const onFlip = () => {
+    reset();
+    setFlipped((current) => !current);    
+    };
+    return(
+    <div className="conbox">
+    <div> <label htmlFor="OWtoApex">Overwatch to Apex</label>
+    <input 
+    value={flipped ? (amount / 0.3).toFixed(2) : amount} 
+    id="OW" 
+    placehorlder="Overwatch" 
+    type="number"
+    onChange={onChange}
+    disabled={flipped}
+    />
+    </div>
+
+   <div>
+    <label htmlFor="ApextoOW">Apex to Overwatch</label>
+    <input 
+    value={flipped ? amount :  (amount * 0.3).toFixed(2)} 
+    id="Apex" 
+    placehorlder="ApexLegend" 
+    type="number"
+    disabled={!flipped}
+    onChange={onChange}
+    />
+    </div>
+    <button onClick={reset}>Reset</button>
+    <button onClick={onFlip}>Flip</button>
+    </div>
+);
+}
+
+function OWtoVal() {
+    const [val, setval] = React.useState(0);
+    const [flipped, setFlipped] = React.useState(false);
+    const onChange = (event) => {
+    setval(event.target.value);
+    };
+    const reset = () => setval(0);
+    const onFlip = () => {
+    reset();
+    setFlipped((current) => !current);    
+    };
+    return(
+    <div className="conbox">
+    <div> <label htmlFor="OWtoVal">Overwatch to Valorant</label>
+    <input 
+    value={flipped ? (val / 0.094286).toFixed(2) : val} 
+    id="OW" 
+    placehorlder="Overwatch" 
+    type="number"
+    onChange={onChange}
+    disabled={flipped}
+    />
+    </div>
+
+   <div>
+    <label htmlFor="ApextoOW">Valorant to Overwatch</label>
+    <input 
+    value={flipped ? val :  (val * 0.094286).toFixed(4)} 
+    id="Valorant" 
+    placehorlder="Valorant" 
+    type="number"
+    disabled={!flipped}
+    onChange={onChange}
+    />
+    </div>
+    <button onClick={reset}>Reset</button>
+    <button onClick={onFlip}>Flip</button>
+    </div>
+    )
+}
+
+function ApextoVal() {
+    const [val, setval] = React.useState(0);
+    const [flipped, setFlipped] = React.useState(false);
+    const onChange = (event) => {
+    setval(event.target.value);
+    };
+    const reset = () => setval(0);
+    const onFlip = () => {
+    reset();
+    setFlipped((current) => !current);    
+    };
+    return(
+    <div className="conbox">
+    <div> <label htmlFor="ApextoVal">ApexLegend to Valorant</label>
+    <input 
+    value={flipped ? (val / 0.314286).toFixed(4) : val} 
+    id="Apex" 
+    placehorlder="ApexLegend" 
+    type="number"
+    onChange={onChange}
+    disabled={flipped}
+    />
+    </div>
+
+   <div>
+    <label htmlFor="ApextoOW">Valorant to Overwatch</label>
+    <input 
+    value={flipped ? val :  (val * 0.314286).toFixed(4)} 
+    id="Valorant" 
+    placehorlder="Valorant" 
+    type="number"
+    disabled={!flipped}
+    onChange={onChange}
+    />
+    </div>
+    <button onClick={reset}>Reset</button>
+    <button onClick={onFlip}>Flip</button>
+    </div>
+    )
+}
+function stop() {
+  window.location.reload();
+}
+
+function App() {
+    const [index, setIndex] = React.useState("xx")
+    const onSelect = (event) => {
+        setIndex(event.target.value);
+    }
+    return(
+    <div className="lol">
+    <h1 onClick={stop}>Sens Converter</h1>
+    <div className="bigbox">
+    <div className="conbox">
+    <select value={index}onChange={onSelect}>
+        <option value="xx">Select your units</option>
+        <option value="0">Overwatch , ApexLegend</option>
+        <option value="1">Overwatch , Valorant</option>
+        <option value="2">ApexLegend , Valorant</option>
+        </select>
+        
+        <br/>
+        {index === "xx" ? "" : null}
+        {index === "0" ? <OWtoApex/> : null}
+        {index === "1" ? <OWtoVal/> : null}
+        {index === "2" ? <ApextoVal/> : null}
+        
+    </div>
+    </div>
+    </div>
+    
+)}
+
+ReactDOM.render(<App/>, root);
+</script>
+</html>

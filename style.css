@@ -1,0 +1,77 @@
+@font-face {
+    font-family: 'Bebas';
+    src: url(BebasNeue-Regular.woff) format('woff');
+}
+
+body {
+margin : 0px;
+font-size: 25px;
+color : #A9AABC;
+background-color: #444655;
+font-family: 'Bebas';
+}
+.conbox {
+    margin-left:10px;
+    padding-top : 20px;
+    background-color: #444655;
+    padding-bottom: 100px;
+    font-family: 'Bebas';
+}
+input {
+    width: 200px;
+    outline: none;
+    font-size: 25px;
+    color : #B95860;
+    background-color:#A9AABC;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    font-family: 'Bebas';
+}
+button {
+    background-color: #A9AABC;
+    color : #B95860;
+    font-family: 'Bebas';
+}
+select {
+    margin-left: 10px;
+    width : 350px;
+    font-size: 25px;
+    background-color: #A9AABC;
+    color : #B95860;
+    font-family: 'Bebas';
+}
+label {
+    color: #B95860;
+    width: 20px;
+    padding-right: 20px;
+    margin-right: 20px;
+    border-right: 20px;
+    font-family: 'Bebas';
+}
+h1 {
+    width: 100%;
+    font-size: 70px;
+    letter-spacing: 1px;
+    color :  #B95860;
+  background-color: #294284;
+  margin: 0px;
+  text-align: center;
+  font-family: 'Bebas';
+}
+
+#clock {
+    position: absolute;
+    top:100%;
+    left: 50%;
+    font-size: 70px;
+    width: 100%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    background-color: #294284;
+    color:#B95860;
+}
+:disabled {
+    background-color: #a9aabca9;
+}
